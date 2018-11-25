@@ -1,0 +1,17 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+steps:
+- powershell: Invoke-WebRequest -Uri https://raw.githubusercontent.com/kmaooad18/$(ParentRepository)/master/Leanware.Web/Spec.cs -OutFile $(Build.SourcesDirectory)/Leanware.Web/Spec.cs
+- script: dotnet build
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*.csproj'
+- script: dotnet publish --output $(Build.ArtifactStagingDirectory)
+- task: PublishBuildArtifacts@1
