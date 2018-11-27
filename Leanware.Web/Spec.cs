@@ -324,7 +324,7 @@ namespace KmaOoad18.Leanware.Web
         [Fact]
         public async Task CanEnforceWipLimit()
         {
-            const int wipLimit = 2;
+            const int wipLimit = 5;
 
             var client = new LeanwareTestClient(_factory);
 
