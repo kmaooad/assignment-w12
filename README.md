@@ -10,4 +10,4 @@ Features appear on UI as several lists (one list for each status). Each list sho
 Returns features with given status sorted by their stack rank (priority)
 
 `POST /api/features/{id}/position/{position:int}`
-Moves given feature to the given position in the list of other features with the same status.
+Moves given feature to the given position in the list of other features with the same status. Note: `position` values start from 1, not from 0.

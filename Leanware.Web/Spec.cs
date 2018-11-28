@@ -234,7 +234,7 @@ namespace KmaOoad18.Leanware.Web
 
                 await client.Post(path: $"api/features/{feature.Id}/approve");
 
-                if (i > 5)
+                if (i > 4)
                 {
                     await client.Post(path: $"api/stories/{stories.First().Id}/start");
                     inProgressFeatures.Add(feature);
